@@ -23,6 +23,8 @@ collections:
     output: true
   portfolios:
     output: true
+ posts:
+    output: true
 
 defaults:
   - scope:
@@ -45,6 +47,11 @@ defaults:
       type: portfolios
     values:
       layout: portfolio
+  - scope:
+      path: ''
+      type: posts
+    values:
+      layout: post
 
 colors:
   primary: '#0071bc'
