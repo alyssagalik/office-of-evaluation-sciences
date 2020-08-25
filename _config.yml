@@ -67,6 +67,11 @@ analytics:
 # Search.gov configuration
 search_site_handle: oes.gsa.gov
 
+# blog archive at /blog
+paginate: 5
+paginate_path: "blog/page/:num/"
+
+
 footer:
   image: /assets/img/icons/gsa-white.svg
   email: oes@gsa.gov
