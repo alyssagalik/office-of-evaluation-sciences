@@ -1,0 +1,77 @@
+---
+layout: default
+title: OES Blog
+skip_index: true
+blog_tagline: Our team posts updates on our collaborations, resources and evidence utilization
+---
+
+<section class="usa-section background-dark section-intro">
+  <div class="grid-container">
+    <div class="section-intro-header">
+      <h1 class="section-heading section-heading-alt">{{ page.title }}</h1>
+      <h2>{{ page.blog_tagline }}</h2>
+    </div>
+  </div>
+</section>
+
+<section class="grid-container usa-section content-wide">
+  <div class="grid-row grid-gap">
+    <div class="tablet:grid-col-8 content-focus page-tag-results">
+      {%
+      include tag-results.html
+      posts=paginator.posts
+      tags=page.tags
+      trim_padding=true
+      %}
+      <section class="pagination grid-row content-focus">
+        <div>
+          {% if paginator.previous_page %}
+            <a class="link-arrow-left" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">
+              {% include svg/icons/arrow-left.svg %} Previous {{ paginator.per_page }} posts
+            </a>
+          {% else %}
+          <p></p>
+          {% endif %}
+        </div>
+        <div>
+          <p>Page {{ paginator.page }} of {{ paginator.total_pages }}</p>
+        </div>
+        <div>
+          {% if paginator.next_page %}
+          <a class="link-arrow-right" href="{{ site.baseurl }}{{ paginator.next_page_path }}">
+            Next {{ paginator.per_page }} posts {% include svg/icons/arrow-right.svg %}
+          </a>
+          {% else %}
+          <p></p>
+          {% endif %}
+        </div>
+      </section>
+    </div>
+   
+    <aside class="sidebar tablet:grid-col-4">
+      <div class="blog-search">
+              <form class="usa-search usa-search--small" action="{{ site.baseurl }}/search/">
+                <label for="search-field-small">Blog search</label>
+                <div role="search">
+            <input class="usa-input" id="search-field-small" type="search" name="q">
+            <button class="usa-button" type="submit">
+              <span class="usa-sr-only">Search</span>
+            </button>
+          </div>
+        </form>
+        <!-- <p><a class="link-rss" href="{{ "/feed.xml" | prepend: site.baseurl }}">RSS feed</a></p> -->
+      </div>
+      <h4 class="sidebar-heading-topic">Browse by topic</h4>
+      <ul>
+        <li>
+          <a href="{{ site.baseurl }}/tags/evidence-utilization">Evidence Utilization</a>
+        </li>
+        <li>
+          <a href="{{ site.baseurl }}/tags/veterans">Veterans</a>
+        </li>
+      </ul>
+  </div>
+  </section>
+  {% include contact-button.html %}
+
+  <!-- Pagination links -->
